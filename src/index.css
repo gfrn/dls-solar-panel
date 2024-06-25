@@ -1,0 +1,32 @@
+.legend-item {
+  flex: 1 0 0;
+  color: white;
+  text-align: center;
+}
+
+.legend-item {
+  flex: 1 0 0;
+  color: white;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.main, .legend-view {
+  display: flex;
+  gap: 5px;
+}
+
+.main > * {
+  padding: 5px;
+  flex: 1 0 0;
+  border: 1px solid black;
+}
+
+svg {
+  height: 80%;
+  width: 100%;
+}
+
+h1, h2 {
+  margin-top: 0;
+}
