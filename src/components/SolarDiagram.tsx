@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import "./SolarDiagram.css";
 
-const COLOURS = ["red", "orange", "blue", "green"];
+const COLOURS = ["#8C1C13", "#FFAD05", "#084887", "#054A29"];
 
 const getColour = (value: number, max = 100) => {
   const index = Math.round(value / (max / COLOURS.length));
@@ -37,23 +37,25 @@ const SolarCircle = ({
   );
 };
 
-export const SolarDiagram = ({
-  values,
-}: {
-  values: number[];
-}) => {
+export const SolarDiagram = ({ values }: { values: number[] }) => {
   const innerCircle = useMemo(() => values.slice(20), [values]);
   const centreCircle = useMemo(() => values.slice(8, 20), [values]);
-  const outerCircle = useMemo(() => values.slice(0,8), [values]);
+  const outerCircle = useMemo(() => values.slice(0, 8), [values]);
 
   return (
-    <div className="solar-view">
+    <div className="map-card">
       <h1>Panel Generation Breakdown</h1>
-      <svg viewBox="0 0 150 110">
+      <svg viewBox="0 0 130 105">
         <SolarCircle values={centreCircle} radius={45} />
         <SolarCircle values={innerCircle} radius={40} />
         <SolarCircle values={outerCircle} radius={50} />
-        <rect x={5} y={42.5} width={10} height={20} fill={getColour(values[29])} />
+        <rect
+          x={5}
+          y={42.5}
+          width={10}
+          height={20}
+          fill={getColour(values[29])}
+        />
         <rect
           x={55}
           y={27}
