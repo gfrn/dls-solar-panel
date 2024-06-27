@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { SolarDiagram } from "./components/SolarDiagram";
 import { PowerStatus } from "./components/PowerStatus";
+import { Bar } from "./components/Bar";
 
 const OUTER_PANELS_PVS = new Map([
   // OUTER PANELS
@@ -43,8 +44,15 @@ function App() {
     new WebSocket("ws://i04-ws001.diamond.ac.uk:8080/pvws/pv")
   );
   const [pvMap, setPvMap] = useState(new Map(OUTER_PANELS_PVS));
+  const [nationalStats, setNationalStats] = useState<Record<string, any>[]>([]);
 
   useEffect(() => {
+    fetch("https://api.carbonintensity.org.uk/generation").then(async (response) => {
+     const jsonResp = await response.json();
+     console.log(jsonResp.data.generationmix);
+     setNationalStats(jsonResp.data.generationmix);
+    })
+
     webSocket.onopen = () => {
       const message = { type: "subscribe", pvs: [...OUTER_PANELS_PVS.keys()] };
       webSocket.send(JSON.stringify(message));
@@ -87,7 +95,10 @@ function App() {
       <div className="row" style={{ flex: "1 0 0" }}>
         <SolarDiagram values={[...pvMap.values()]} />
         <div>
-          <h1>Generation</h1>{" "}
+          <h1>National Grid</h1>
+          {
+           nationalStats.map((genType) => <Bar percentage={genType.perc} title={genType.fuel}/>)
+          }
         </div>
       </div>
     </div>

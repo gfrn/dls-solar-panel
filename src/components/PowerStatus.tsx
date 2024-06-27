@@ -8,12 +8,10 @@ export const PowerStatus = ({
   instantPower: number;
   accPower: number;
   title: string;
-}) => {
-  return (
-    <div className="power-card">
-      <h2>{title}</h2>
-      <h3>{instantPower} kW</h3>
-      <h4>{accPower} mWh to date</h4>
-    </div>
-  );
-};
+}) => (
+  <div className="power-card">
+    <h2>{title}</h2>
+    <h3>{instantPower} kW</h3>
+    <h4>{accPower} mWh to date</h4>
+  </div>
+);

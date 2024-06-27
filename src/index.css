@@ -2,9 +2,12 @@
   flex: 1 0 0;
   text-align: center;
   margin-right: 10px;
+  color: white;
 }
 
-.row, .legend-view, .main {
+.row,
+.legend-view,
+.main {
   display: flex;
   gap: 10px;
 }
@@ -16,7 +19,7 @@
 .row > * {
   padding: 10px 15px;
   flex: 1 0 0;
-  background-color: #26547C;
+  background-color: #fff;
 }
 
 .power-card {
@@ -28,18 +31,22 @@
 }
 
 svg {
-  width: 80%;
-  padding: 0 10%;
+  width: 77%;
+  padding: 3% 10%;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 5px 0;
+  font-weight: 400;
 }
 
 body {
-  background-color: #0A1128;
-  color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f1f1f1;
+  color: #202020;
 }
 
 .main {
