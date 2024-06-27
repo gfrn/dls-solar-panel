@@ -10,6 +10,6 @@ export const PowerStatus = ({
   <div className="power-card">
     <h2>{title}</h2>
     <h3>{typeof instantPower === "number" ? instantPower.toFixed(3) : "?"} kW</h3>
-    <h4>{typeof accPower  === "number" ? accPower.toFixed(3) : "?"} mWh to date</h4>
+    <h4>{typeof accPower  === "number" ? accPower.toFixed(3) : "?"} MWh to date</h4>
   </div>
 );
