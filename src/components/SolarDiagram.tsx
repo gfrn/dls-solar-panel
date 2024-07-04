@@ -5,7 +5,7 @@ const COLOURS = ["#8C1C13", "#FFAD05", "#084887", "#054A29"];
 
 const getColour = (value: number, max = 100) => {
   const index = Math.round(value / (max / COLOURS.length));
-  return COLOURS[index];
+  return COLOURS[index < COLOURS.length ? index  : COLOURS.length - 1];
 };
 
 const SolarCircle = ({
