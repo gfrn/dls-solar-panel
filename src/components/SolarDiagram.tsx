@@ -30,7 +30,7 @@ const SolarCircle = ({
           strokeDasharray={`${arcLength - 1}, ${arcLength * circumference}`}
           strokeDashoffset={-arcLength * i - 1}
           stroke={getColour(value)}
-          key={i}
+          key={`${radius}-${i}`}
         />
       ))}
     </>
@@ -71,7 +71,7 @@ export const SolarDiagram = ({ values }: { values: number[] }) => {
           {COLOURS.map((colour, i) => {
             const percentage = 100 / COLOURS.length;
             return (
-              <span className="legend-item" style={{ backgroundColor: colour }}>
+              <span key={i} className="legend-item" style={{ backgroundColor: colour }}>
                 {percentage * i} kW - {percentage * (i + 1)} kW
               </span>
             );

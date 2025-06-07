@@ -33,6 +33,7 @@
 svg {
   width: 77%;
   padding: 3% 10%;
+  max-height: calc(100vh - 350px);
 }
 
 h1,

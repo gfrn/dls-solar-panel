@@ -49,7 +49,7 @@ const OUTER_PANELS_PVS = new Map([
 ]);
 
 function App() {
-  const [webSocket, setWebSocket] = useState(new WebSocket("ws://i04-ws001.diamond.ac.uk:8080/pvws/pv"));
+  const [webSocket, setWebSocket] = useState(new WebSocket(import.meta.env.VITE_PV_ENDPOINT));
   const [pvMap, setPvMap] = useState(new Map(OUTER_PANELS_PVS));
   const [nationalStats, setNationalStats] = useState<Record<string, any>[]>([]);
 
@@ -120,7 +120,7 @@ function App() {
         <div>
           <h1>National Grid</h1>
           {nationalStats.map((genType) => (
-            <Bar key={genType.perc} percentage={genType.perc} title={genType.fuel} />
+            <Bar key={genType.fuel} percentage={genType.perc} title={genType.fuel} />
           ))}
         </div>
       </div>
