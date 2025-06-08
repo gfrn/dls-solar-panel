@@ -11,7 +11,7 @@ export const Bar = ({
       <div
         style={{
           width: `${percentage}%`,
-          backgroundColor: "red",
+          backgroundColor: "#56b365",
           height: "1.4em",
           paddingLeft: "5px",
         }}

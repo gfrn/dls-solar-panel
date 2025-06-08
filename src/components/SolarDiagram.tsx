@@ -1,11 +1,12 @@
 import { useMemo } from "react";
 import "./SolarDiagram.css";
+import dlsImg from "../dls.png"
 
-const COLOURS = ["#8C1C13", "#FFAD05", "#084887", "#054A29"];
+const COLOURS = ["#8C1C13", "#FFAD05", "#0c6ac6", "#054A29"];
 
 const getColour = (value: number, max = 100) => {
   const index = Math.round(value / (max / COLOURS.length));
-  return COLOURS[index < COLOURS.length ? index  : COLOURS.length - 1];
+  return COLOURS[index < COLOURS.length ? index : COLOURS.length - 1];
 };
 
 const SolarCircle = ({
@@ -46,9 +47,10 @@ export const SolarDiagram = ({ values }: { values: number[] }) => {
     <div className="map-card">
       <h1>Panel Generation Breakdown</h1>
       <svg viewBox="0 0 130 105">
-        <SolarCircle values={centreCircle} radius={45} />
-        <SolarCircle values={innerCircle} radius={40} />
-        <SolarCircle values={outerCircle} radius={50} />
+        <image href={dlsImg} height="130" width="215" x="-33" y="-15" />
+        <SolarCircle values={centreCircle} radius={42} />
+        <SolarCircle values={innerCircle} radius={34} />
+        <SolarCircle values={outerCircle} radius={47} />
         <rect
           x={5}
           y={42.5}
@@ -57,12 +59,12 @@ export const SolarDiagram = ({ values }: { values: number[] }) => {
           fill={getColour(values[29])}
         />
         <rect
-          x={55}
-          y={27}
+          x={50}
+          y={37}
           width={15}
           height={20}
           fill={getColour(values[28])}
-          style={{ transformOrigin: "center", transform: "rotate(-30deg)" }}
+          style={{ transformOrigin: "center", transform: "rotate(30deg)" }}
         />
       </svg>
       <h2>Legend</h2>

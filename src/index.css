@@ -5,6 +5,18 @@
   color: white;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 10px;
+  flex: 1 0 0;
+}
+
+.column>* {
+  padding: 10px 15px;
+}
+
 .row,
 .legend-view,
 .main {
@@ -16,14 +28,28 @@
   flex-wrap: wrap;
 }
 
-.row > * {
+.power-card,
+.map-card,
+.ng-card,
+.fact-card {
+  background-color: rgba(21, 34, 119, 0.3);
+  color: white;
+  box-shadow: 2px 3px 5px rgb(0 0 0 / 0.2);
   padding: 10px 15px;
+}
+
+.power-card,
+.map-card,
+.ng-card {
   flex: 1 0 0;
-  background-color: #fff;
 }
 
 .power-card {
   min-width: 200px;
+}
+
+.ng-card h4::first-letter {
+  text-transform: capitalize;
 }
 
 .map-card {
@@ -46,10 +72,12 @@ h4 {
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f1f1f1;
   color: #202020;
+  background: #002147;
+  background: linear-gradient(338deg, rgba(0, 33, 71, 1) 60%, rgba(0, 0, 0, 1) 96%);
 }
 
-.main {
+.main,
+.column {
   flex-direction: column;
 }
